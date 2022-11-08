@@ -1,5 +1,5 @@
 async function getRecipes() {
-  const response = await fetch('data/recipes.js');
+  const response = await fetch('data/recipes.json');
     if(response.ok){
       const recipes = await response.json();
       return recipes
