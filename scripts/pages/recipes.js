@@ -11,7 +11,7 @@ async function displayRecipes(recipesData) {
 async function initRecipes() {
   const recipesData = await getRecipes();
   displayRecipes(recipesData);
-  initFilter(recipesData);
+  initGlobalFilter(recipesData);
 }
 
 initRecipes()
