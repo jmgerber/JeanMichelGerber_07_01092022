@@ -1,5 +1,5 @@
 function recipeFactory(data) {
-  const { name, description, time, ustensils, ingredients, id, appliance, servings } = data;
+  const { name, description, time, ingredients } = data;
 
   function getIngredientsList() {
     const listDOM = document.createElement('ul');
