@@ -34,19 +34,22 @@ async function initCategoriesFilter(data = recipesData) {
 initCategoriesFilter();
 
 function globalSearch(recipesData) {
-  const filteredData = recipesData.filter(recipe => {
-    // Recherche dans les ingrédients
-    recipe.ingredients.forEach(item => {
-      if (item.ingredient.toLowerCase().includes(searchBar.value.toLowerCase())){
-        return recipe
-      }
-    });
+  let filteredData = [];
+  for (let r = 0; r < recipesData.length; r++) {
     // Recherche dans le nom ou la description
-    if (recipe.name.toLowerCase().includes(searchBar.value.toLowerCase()) || 
-      recipe.description.toLowerCase().includes(searchBar.value.toLowerCase())) {
-      return recipe
-    };
-  });
+    if(recipesData[r].name.toLowerCase().includes(searchBar.value.toLowerCase()) ||
+      recipesData[r].description.toLowerCase().includes(searchBar.value.toLowerCase())) {
+      filteredData.push(recipesData[r]);
+    } else {
+      // Recherche dans les ingrédients
+      for (let i = 0; i < recipesData[r].ingredients.length; i++){
+        if(recipesData[r].ingredients[i].ingredient.toLowerCase().includes(searchBar.value.toLowerCase())) {
+          filteredData.push(recipesData[r]);
+          break
+        }
+      }
+    }
+  }
   return filteredData
 }
 
