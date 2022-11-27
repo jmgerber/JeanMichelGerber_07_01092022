@@ -1,17 +1,14 @@
-async function displayRecipes(recipesData) {
+const recipesData = getRecipes();
+
+async function displayRecipes(data = recipesData) {
+  data = (data == recipesData) ? await recipesData : data
   const recipesSection = document.querySelector(".recipes-container");
 
-  recipesData.forEach((media) => {
-    const recipeModel = recipeFactory(media);
-    const singleRecipeDOM = recipeModel.getSingleRecipeDOM();
-    recipesSection.appendChild(singleRecipeDOM);
+  data.forEach((media) => {
+  const recipeModel = recipeFactory(media);
+  const singleRecipeDOM = recipeModel.getSingleRecipeDOM();
+  recipesSection.appendChild(singleRecipeDOM);
   });
 }
 
-async function initRecipes() {
-  const recipesData = await getRecipes();
-  displayRecipes(recipesData);
-  initGlobalFilter(recipesData);
-}
-
-initRecipes()
+displayRecipes();

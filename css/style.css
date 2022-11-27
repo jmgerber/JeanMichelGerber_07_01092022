@@ -34,7 +34,7 @@ header {
   top: 17.5px;
 }
 
-.header-search input[type='search'] {
+#search {
   height: 69px;
   width: 100%;
   background-color: #E7E7E7;
@@ -44,7 +44,7 @@ header {
   padding-left: 24px;
 }
 
-.header-search input[type='search']:focus {
+#search:focus {
   border: 2px solid #212121;
 }
 
@@ -126,4 +126,135 @@ header {
 
 .ingredient-name {
   font-weight: 700;
+}
+
+.categories-container {
+  margin: 20px 0 40px;
+  height: 70px;
+}
+
+.specifics-filters{
+  display: flex;
+  align-items: flex-start;
+  position: absolute;
+  z-index: 1;
+}
+
+.specifics-filters button.close::after {
+  display: inline-block;
+  content: ">";
+  color: white;
+  transform: rotate(90deg) scaleY(1.75);
+}
+
+.specific-filter {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-size: 1.125em;
+  padding: 24px 15px;
+  color: #fefefe;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.specific-filter span {
+  margin-right: 24px;
+}
+
+.specific-filter.ingredients {
+  background-color: #3282F7;
+}
+
+.specific-filter.appliance {
+  background-color: #68D9A4;
+}
+
+.specific-filter.ustensils {
+  background-color: #ED6454;
+}
+
+.specific-filter-search input {
+  font-family: "Lato", sans-serif;
+  font-size: 1.125em;
+  font-weight: 700;
+  color: #fefefe;
+  border: none;
+  background-color: transparent;
+  margin-right: 24px;
+  flex: 1;
+}
+
+.specific-filter-search {
+  display: none;
+}
+
+.specific-filter-search input::placeholder {
+  color: #fefefe;
+  opacity: 0.5;
+}
+
+.filter-form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.filter-form::after {
+  display: inline-block;
+  content: ">";
+  color: white;
+  transform: rotate(-90deg) scaleY(1.75);
+}
+
+.categories-list ul{
+  margin-top: 24px;
+  font-weight: 400;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(auto-fill, minmax(22px, max-content));
+  gap: 10px;
+}
+
+.categories-list li {
+  text-align: justify;
+}
+
+.categories-list li::first-letter {
+  text-transform: uppercase;
+}
+
+.tags {
+  display: flex;
+  font-size: 0.875em;
+  font-weight: 700;
+  color: #fefefe;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.tags.ingredient {
+  background-color: #3282F7;
+}
+
+.tags.appliance {
+  background-color: #68D9A4;
+}
+
+.tags.ustensil {
+  background-color: #ED6454;
+}
+
+.tags-container {
+  margin-top: 25px;
+  display: flex;
+  gap: 8px;
+}
+
+.tags::after {
+  content: url("../assets/close_button.svg");
+  height: 20px;
+  width: 20px;
+  margin-left: 4px;
 }
