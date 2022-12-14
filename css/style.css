@@ -140,7 +140,7 @@ header {
   z-index: 1;
 }
 
-.specifics-filters button.close::after {
+.specifics-filters div.close::after {
   display: inline-block;
   content: ">";
   color: white;
