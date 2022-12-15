@@ -18,9 +18,15 @@ async function search() {
   }
 
   // On met à jour l'affichage
-  recipesSection.innerHTML = "";
-  initCategoriesFilter(data);
-  displayRecipes(data);
+  if (data.length > 0) {
+    recipesSection.innerHTML = "";
+    initCategoriesFilter(data);
+    displayRecipes(data);
+  }
+  else {
+    recipesSection.innerHTML = "<p> Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc.</p>";
+    initCategoriesFilter(data);
+  }
 }
 
 
